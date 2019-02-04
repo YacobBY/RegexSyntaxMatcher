@@ -24,7 +24,7 @@ public class RegexComparer {
 		List<String> result = new ArrayList<String>();
 		String temp = "";
 		for (int i = 0; i < regex.size(); i++) {
-
+			//
 			if (regex.get(i).equals('(')) {
 				temp += '(';
 				while (regex.get(i + 1) != ')') {
