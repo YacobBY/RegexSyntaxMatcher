@@ -14,7 +14,8 @@ public class RegexComparer {
 
 //        System.out.println("Enter Regex please.");
 //        input = scan.nextLine();
-        input = "xyz(xyz)*z";
+        String secondRegex = "(xyz)xyzxyz";
+        input = "xyz(xyz)xyz";
         System.out.println(input);
 
         List<Character> regex = new ArrayList<Character>();
@@ -35,8 +36,10 @@ public class RegexComparer {
                 result.add(temp);
                 i += 2;
             }
-            result.add(regex.get(i).toString());
-            if (regex.get(i).equals('+')) {
+            if (i < regex.size()) {
+                result.add(regex.get(i).toString());
+            }
+            if (i < regex.size() && regex.get(i).equals('+')) {
 
                 if (temp.contains("(")) {
                     result.remove(result.size() - 1);
@@ -48,6 +51,7 @@ public class RegexComparer {
                 result.add(temp);
                 temp = "";
             }
+
         }
 
         System.out.println("ArrayList -> result");
@@ -72,20 +76,27 @@ public class RegexComparer {
                     charSwapper.insert(0, '(');
                     charSwapper.append(")");
                     result.set(i, String.valueOf(result.get(i - 1).charAt(result.get(i - 1).length() - 1)));
-                    result.set(i-1, charSwapper.toString());
+                    result.set(i - 1, charSwapper.toString());
                     System.out.println(charSwapper.toString());
-                    i=0;
+                    i = 0;
 
                 }
             }
         }
         System.out.println("-----------------------------");
         StringBuilder finalString = new StringBuilder();
-        index=0;
-        for (String s : result){
+        index = 0;
+        for (String s : result) {
             finalString.append(s);
-            System.out.println((index++) + ": " + s);}
-        System.out.println(finalString);
+            System.out.println((index++) + ": " + s);
+        }
+
+        System.out.println("Final result: "+finalString);
+        System.out.println("Compare to: "+ secondRegex);
+
+        if (secondRegex.equals(finalString.toString())){
+            System.out.println("Match found");
+        }
 
     }
 
