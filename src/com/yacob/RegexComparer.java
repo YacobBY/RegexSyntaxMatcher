@@ -14,7 +14,7 @@ public class RegexComparer {
 
 //        System.out.println("Enter Regex please.");
 //        input = scan.nextLine();
-        input = "xya(zxya)*z";
+        input = "xyz(xyz)*z";
         System.out.println(input);
 
         List<Character> regex = new ArrayList<Character>();
@@ -75,7 +75,7 @@ public class RegexComparer {
                     result.set(i-1, charSwapper.toString());
                     System.out.println(charSwapper.toString());
                     i=0;
-                    
+
                 }
             }
         }
